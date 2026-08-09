@@ -14,7 +14,7 @@ import { useLanguage } from "@/lib/language";
 const copy = {
   en: {
     eyebrow: "Acoustic Guitar · Electric Guitar · Ukelele — KL Area, Sentral & Online",
-    h1: "Guitar lessons built for how your brain actually learns.",
+    h1: "Play the Songs You Love — ithout the Frustration.",
     sub: "Backed by 10+ years of electric and acoustic guitar experience and a psychology degree in how the human brain learns.",
     body: "Modern guitar, ukulele, and electric lessons designed around your goals. Whether you're an absolute beginner, a remote worker who wants to fill time, or a parent wanting a fun outlet for your child.",
     trialBtn: "💬 Claim Your Free Trial Lesson on WhatsApp",
