@@ -22,15 +22,15 @@ export default function Languages() {
 
   return (
     <section className="border-t border-white/10">
-      <div className="mx-auto max-w-3xl px-6 py-12 text-center sm:py-24">
+      <div className="mx-auto max-w-3xl px-6 py-8 text-center sm:py-24">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-widest text-amber-400">
+          <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 sm:text-sm">
             {c.eyebrow}
           </p>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h2 className="mt-1.5 text-xl font-bold tracking-tight text-white sm:mt-2 sm:text-3xl">
             {c.heading}
           </h2>
-          <p className="mt-4 text-base text-white/60">{c.body}</p>
+          <p className="mt-2 text-sm text-white/60 sm:mt-4 sm:text-base">{c.body}</p>
         </Reveal>
       </div>
     </section>
