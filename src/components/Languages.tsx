@@ -21,7 +21,7 @@ export default function Languages() {
   const c = copy[lang];
 
   return (
-    <section className="border-t border-white/10">
+    <section className="section-auto-height border-t border-white/10">
       <div className="mx-auto max-w-3xl px-6 py-8 text-center sm:py-24">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-400 sm:text-sm">
