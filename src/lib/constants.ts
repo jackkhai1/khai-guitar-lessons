@@ -8,19 +8,19 @@ export function whatsappLink(message: string) {
 }
 
 export const TRIAL_MESSAGE =
-  "Hi! I visited your site and would like to claim a free trial lesson [Online / In-Person] for [me / my child / someone else].";
+  "Hi! I’d like to claim a free trial lesson.\n\n• Student: [Adult / Child]\n• Format: [In-Person / Online]\n• Day/Time preference: ";
 
 export const GIG_MESSAGE =
   "Hi! Are you available to gig? Here are my event details:\nDate: \nEvent type: \nLocation: ";
 
 export const GEAR_MESSAGE =
-  "Hi! I don't have a guitar yet and would like to claim a free trial lesson, plus some advice on which guitar or ukulele to buy for [me / my child].";
+  "Hi! I don't have a guitar yet and would like to claim a free trial lesson, plus some advice on which guitar or ukulele to buy";
 
 export const TRIAL_MESSAGE_ZH =
-  "你好！我在网站上看到了你的信息，想预约一堂免费试听课【线上 / 面授】，对象是【我自己 / 我的孩子 / 其他人】。";
+  "你好！我想预约一堂免费试听课。\n\n• 学生：【成人 / 孩童】\n• 形式：【面授 / 线上】\n• 偏好的日期/时间： ";
 
 export const GIG_MESSAGE_ZH =
   "你好！请问你有空表演吗？以下是我的活动详情：\n日期：\n活动类型：\n地点：";
 
 export const GEAR_MESSAGE_ZH =
-  "你好！我还没有吉他，想预约一堂免费试听课，并请你推荐适合【我自己 / 我的孩子】购买的吉他或尤克里里。";
+  "你好！我还没有吉他，想预约一堂免费试听课，并想请你推荐适合购买的吉他或尤克里里。";

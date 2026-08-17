@@ -17,7 +17,7 @@ const copy = {
     h1: "Want to Play Guitar with Absolute Confidence?",
     sub: "Backed by 10+ years of electric and acoustic guitar experience and a psychology degree in how the human brain learns.",
     body: "Modern guitar, ukulele, and electric lessons designed around your goals. Whether you're an absolute beginner, a remote worker who wants to fill time, or a parent wanting a fun outlet for your child.",
-    heroLineMobile: "Learn from an instructor with 10+ years of guitar experience, backed by a psychology degree in how you learn.",
+    heroLineMobile: "Learn from a instructor with 10+ years of guitar experience, backed by a psychology degree in how you learn.",
     trialBtn: "💬 Claim Your Free Trial Lesson on WhatsApp",
     trialBtnMobile: "💬 I'm Ready To Claim My Free Lesson!",
     gigBtn: "💬 Are You Available to Gig?",

@@ -21,8 +21,8 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 const links = [
-  { href: "#about", label: { en: "About", zh: "关于我" } },
-  { href: "#guitars", label: { en: "No Instrument?", zh: "没有乐器？" } },
+  { href: "#about", mobileHref: "#faq", label: { en: "About", zh: "关于我" } },
+  { href: "/guitars", label: { en: "No Instrument?", zh: "没有乐器？" } },
   { href: "#lessons", label: { en: "Lessons", zh: "课程" } },
   { href: "#gigs", label: { en: "Gigs", zh: "演出" } },
   { href: "#contact", label: { en: "Contact", zh: "联系" } },
@@ -36,7 +36,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="text-sm font-semibold tracking-tight text-white">
+        <a href="/" className="text-sm font-semibold tracking-tight text-white">
           {SITE_NAME}
         </a>
         <nav className="hidden items-center gap-8 text-sm text-white/70 sm:flex">
@@ -92,7 +92,7 @@ export default function Nav() {
           {links.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={link.mobileHref ?? link.href}
               onClick={() => setOpen(false)}
               className="rounded-lg px-2 py-3 hover:bg-white/5 hover:text-white"
             >
