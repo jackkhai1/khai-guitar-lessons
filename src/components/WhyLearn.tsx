@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef, useState } from "react";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 import { useLanguage } from "@/lib/language";
@@ -49,6 +51,8 @@ const copy = {
     line3: "But most importantly, you do it for yourself.",
     line4: "Guitar is your personal outlet. It's a way to unwind after a long day, process your emotions, and express yourself in ways words can't match.",
     stagesHeading: "No Matter Your Stage in Life, Music Fits",
+    stagesShow: "See who this is for",
+    stagesHide: "Show less",
     closing: "There is a place for you here.",
   },
   zh: {
@@ -57,6 +61,8 @@ const copy = {
     line3: "但最重要的是，你是为了自己而弹。",
     line4: "吉他是你专属的抒发出口，能在忙碌一天后帮你放松、梳理情绪，用言语无法表达的方式展现自己。",
     stagesHeading: "无论你正处于人生哪个阶段，音乐都适合你",
+    stagesShow: "查看适合对象",
+    stagesHide: "收起",
     closing: "这里总有属于你的位置。",
   },
 };
@@ -64,22 +70,40 @@ const copy = {
 export default function WhyLearn() {
   const { lang } = useLanguage();
   const c = copy[lang];
+  const [expanded, setExpanded] = useState(false);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start start", "end end"],
+  });
+
+  const [activeLine, setActiveLine] = useState(0);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const next = v < 1 / 3 ? 0 : v < 2 / 3 ? 1 : 2;
+    setActiveLine((prev) => (prev === next ? prev : next));
+  });
+
+  const fadeClass = (index: number) =>
+    `col-start-1 row-start-1 transition-opacity duration-500 ${
+      activeLine === index ? "opacity-100" : "opacity-0"
+    }`;
 
   return (
     <section className="border-t border-white/10">
-      <div className="mx-auto max-w-3xl px-6 py-12 text-center sm:py-24">
-        <Reveal>
-          <p className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+      <div ref={scrollRef} className="relative h-[240vh]">
+        <div className="sticky top-24 mx-auto grid max-w-3xl px-6 py-12 text-center sm:top-32">
+          <p
+            className={`${fadeClass(0)} text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl`}
+          >
             {c.line1}
           </p>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-6 text-base text-white/60">{c.line2}</p>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-8 text-xl font-semibold text-amber-400">{c.line3}</p>
-          <p className="mt-4 text-base text-white/60">{c.line4}</p>
-        </Reveal>
+          <p className={`${fadeClass(1)} text-base text-white/60`}>{c.line2}</p>
+          <div className={fadeClass(2)}>
+            <p className="text-xl font-semibold text-amber-400">{c.line3}</p>
+            <p className="mt-4 text-base text-white/60">{c.line4}</p>
+          </div>
+        </div>
       </div>
       <div className="mx-auto max-w-6xl px-6 pb-24">
         <Reveal>
@@ -87,7 +111,30 @@ export default function WhyLearn() {
             {c.stagesHeading}
           </h2>
         </Reveal>
-        <StaggerGroup className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+
+        <div className="mt-4 text-center sm:hidden">
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-400"
+          >
+            {expanded ? c.stagesHide : c.stagesShow}
+            <svg
+              className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+        </div>
+
+        <StaggerGroup
+          className={`mt-6 grid-cols-1 gap-6 sm:mt-10 sm:grid sm:grid-cols-2 lg:grid-cols-5 ${expanded ? "grid" : "hidden"}`}
+        >
           {stages.map((stage) => (
             <StaggerItem
               key={stage.label.en}

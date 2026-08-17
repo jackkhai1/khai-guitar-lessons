@@ -22,10 +22,7 @@ const copy = {
         10+ years playing guitar, now performing in bands in Malaysia. I&apos;ve
         taught guitar, ukulele, and electric guitar to students of all ages
         — from young kids to retirees, complete beginners to returning
-        players. I hold a psychology degree, because most musicians can
-        play, but not everyone can teach. Whether it&apos;s you or your
-        child, lessons are built around how <em>you</em> learn, not a
-        fixed curriculum.
+        players. 
       </>
     ),
   },
