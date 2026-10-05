@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/lib/language";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import MetaPixel from "@/components/MetaPixel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-neutral-950 text-white pb-16 sm:pb-0">
+        <MetaPixel />
         <LanguageProvider>
           <Nav />
           {children}
