@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Reveal from "./motion/Reveal";
 import {
   whatsappLink,
@@ -24,6 +23,7 @@ const copy = {
     gigBtnMobile: "💬 Book Me for a Gig",
     slots: "I currently teach 10+ regular students and limit weekly free trial slots so every lesson gets full attention. Lock in your trial slot today.",
     slotsMobile: "Trial slots are limited — book yours today.",
+    videoLabel: "Introduction video from your guitar teacher, Jack Khai",
   },
   zh: {
     eyebrow: "木吉他 · 电吉他 · 尤克里里 — 吉隆坡地区、Sentral 及线上教学",
@@ -37,6 +37,7 @@ const copy = {
     gigBtnMobile: "💬 预约表演",
     slots: "我目前教授 10 多位固定学生，并限制每周免费试听课的名额，确保每一堂课都能获得充分关注。立即预约你的试听名额。",
     slotsMobile: "试听名额有限，立即预约。",
+    videoLabel: "吉他老师 Jack Khai 的自我介绍视频",
   },
 };
 
@@ -45,6 +46,20 @@ export default function Hero() {
   const c = copy[lang];
   const trialMessage = lang === "en" ? TRIAL_MESSAGE : TRIAL_MESSAGE_ZH;
   const gigMessage = lang === "en" ? GIG_MESSAGE : GIG_MESSAGE_ZH;
+
+  const introVideo = (
+    <div className="relative aspect-video w-full overflow-hidden rounded-2xl border-2 border-white/15 bg-white/[0.03]">
+      <video
+        src="/videos/intro.mp4"
+        poster="/videos/intro-poster.jpg"
+        controls
+        playsInline
+        preload="metadata"
+        aria-label={c.videoLabel}
+        className="h-full w-full object-cover"
+      />
+    </div>
+  );
 
   return (
     <section id="top" className="relative section-auto-height overflow-hidden">
@@ -59,6 +74,8 @@ export default function Hero() {
           <p className="mt-4 text-center text-base text-white/70 sm:hidden">{c.heroLineMobile}</p>
           <p className="mt-4 hidden text-base text-white/60 sm:block">{c.sub}</p>
           <p className="mt-6 hidden max-w-xl text-lg text-white/70 sm:block">{c.body}</p>
+          {/* Below lg the grid stacks, so show the video above the buttons instead of after them */}
+          <div className="mt-6 lg:hidden">{introVideo}</div>
           <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
             <a
               href={whatsappLink(trialMessage)}
@@ -84,16 +101,8 @@ export default function Hero() {
             <span className="hidden sm:inline">{c.slots}</span>
           </p>
         </Reveal>
-        <Reveal delay={0.15}>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border-2 border-white/15 bg-white/[0.03] sm:aspect-[4/5]">
-            <Image
-              src="/images/profile-picture.jpg"
-              alt="Profile photo of guitar teacher"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
+        <Reveal delay={0.15} className="hidden lg:block">
+          {introVideo}
         </Reveal>
       </div>
     </section>
