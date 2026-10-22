@@ -10,6 +10,8 @@ const copy = {
     body: "Book a free intro call — for you, your child, or your next event.",
     cta: "💬 Book Your Free Intro Call on WhatsApp",
     slots: "I currently teach 10+ regular students and limit weekly free trial slots so every lesson gets full attention. Lock in your trial slot today.",
+    referralTitle: "🎁 Refer a Friend, Get a Free Lesson",
+    referral: "Send a friend for a free trial lesson. If they sign up, your next lesson is on me.",
     instagram: "Follow along on Instagram for clips from lessons, gigs, and everything in between.",
     instagramCta: "@jackkhaii on Instagram",
   },
@@ -18,6 +20,8 @@ const copy = {
     body: "预约一通免费的初次咨询电话 — 无论是为了你自己、你的孩子，还是你的下一场活动。",
     cta: "💬 在 WhatsApp 上预约免费初次咨询",
     slots: "我目前教授 10 多位固定学生，并限制每周免费试听课的名额，确保每一堂课都能获得充分关注。立即预约你的试听名额。",
+    referralTitle: "🎁 推荐朋友，免费多上一堂课",
+    referral: "推荐朋友来上免费试听课。朋友报名后，你的下一堂课免费。",
     instagram: "追踪 Instagram 获取课程花絮、演出片段，还有更多幕后点滴。",
     instagramCta: "@jackkhaii on Instagram",
   },
@@ -44,6 +48,10 @@ export default function FinalCTA() {
           {c.cta}
         </a>
         <p className="mt-4 text-sm text-white/50">{c.slots}</p>
+        <div className="mx-auto mt-8 max-w-md rounded-2xl border border-amber-500/40 bg-amber-500/10 px-6 py-5">
+          <p className="text-lg font-bold text-amber-400">{c.referralTitle}</p>
+          <p className="mt-2 text-sm text-white/80">{c.referral}</p>
+        </div>
 
         <div className="mt-12 border-t border-white/10 pt-8">
           <p className="mx-auto max-w-md text-sm text-white/60">{c.instagram}</p>

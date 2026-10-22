@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./motion/Reveal";
+import PriceNote from "./PriceNote";
 import {
   whatsappLink,
   TRIAL_MESSAGE,
@@ -14,7 +15,7 @@ const copy = {
   en: {
     eyebrow: "Acoustic Guitar · Electric Guitar · Ukelele — KL Area, Sentral & Online",
     h1: "Want to Play Guitar with Absolute Confidence?",
-    sub: "Backed by 10+ years of electric and acoustic guitar experience and a psychology degree in how the human brain learns.",
+    sub: "Backed by 10+ years of electric and acoustic guitar experience and a psychology degree from the University of Manchester in how the human brain learns.",
     body: "Modern guitar, ukulele, and electric lessons designed around your goals. Whether you're an absolute beginner, a remote worker who wants to fill time, or a parent wanting a fun outlet for your child.",
     heroLineMobile: "Learn from an instructor with 10+ years of guitar experience, backed by a psychology degree in how you learn.",
     trialBtn: "💬 Claim Your Free Trial Lesson on WhatsApp",
@@ -28,7 +29,7 @@ const copy = {
   zh: {
     eyebrow: "木吉他 · 电吉他 · 尤克里里 — 吉隆坡地区、Sentral 及线上教学",
     h1: "轻松弹出你喜欢的歌曲，不再挫败。",
-    sub: "拥有 10 年以上电吉他与木吉他演奏经验，并持有心理学学位，深谙人脑真正的学习方式。",
+    sub: "拥有 10 年以上电吉他与木吉他演奏经验，并持有曼彻斯特大学心理学学位，深谙人脑真正的学习方式。",
     body: "现代化的吉他、尤克里里与电吉他课程，围绕你的目标量身设计。无论你是完全的初学者、想找回生活节奏的远程工作者，还是想为孩子找个有趣课外活动的家长，都适合。",
     heroLineMobile: "10 年以上演奏经验，心理学学位助你更快学会。",
     trialBtn: "💬 在 WhatsApp 上预约免费试听课",
@@ -96,6 +97,7 @@ export default function Hero() {
               <span className="hidden sm:inline">{c.gigBtn}</span>
             </a>
           </div>
+          <PriceNote className="mt-4 text-center sm:text-left" />
           <p className="mt-4 max-w-xl text-sm text-white/50">
             <span className="sm:hidden">{c.slotsMobile}</span>
             <span className="hidden sm:inline">{c.slots}</span>

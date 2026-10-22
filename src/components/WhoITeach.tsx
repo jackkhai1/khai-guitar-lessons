@@ -5,24 +5,33 @@ import Reveal from "./motion/Reveal";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 import { whatsappLink, TRIAL_MESSAGE, TRIAL_MESSAGE_ZH } from "@/lib/constants";
 import { useLanguage } from "@/lib/language";
+import OnlinePriceLink from "./OnlinePriceLink";
 
 const ageGroups = [
   {
-    id: "4-8",
-    label: { en: "Ages 4–8", zh: "4–8 岁" },
+    id: "3-9",
+    label: { en: "Ages 3–9", zh: "3–9 岁" },
     filename: "7 yr old.png",
     blurb: {
-      en: "Short, playful sessions built around songs kids already love.",
-      zh: "短而有趣的课程，围绕孩子已经喜欢的歌曲设计。",
+      en: "Short, playful 30-minute sessions with rhythm games, ear training and sing-alongs, built around nursery rhymes and pop songs kids already love.",
+      zh: "短而有趣的 30 分钟课程，透过节奏游戏、听力训练和一起唱歌，围绕孩子已经喜欢的儿歌与流行歌曲设计。",
+    },
+    price: {
+      en: "30 min · RM65 per lesson, or RM240/month",
+      zh: "30 分钟 · 每堂 RM65，或月费 RM240",
     },
   },
   {
-    id: "9-17",
-    label: { en: "Ages 9–17", zh: "9–17 岁" },
+    id: "10-17",
+    label: { en: "Ages 10–17", zh: "10–17 岁" },
     filename: "teenage student.jpeg",
     blurb: {
       en: "Real technique, real songs — progress they can actually hear.",
       zh: "扎实的技巧、真实的歌曲 — 让他们听得见自己的进步。",
+    },
+    price: {
+      en: "1 hr · RM115 per lesson, or RM420/month",
+      zh: "1 小时 · 每堂 RM115，或月费 RM420",
     },
   },
   {
@@ -32,6 +41,10 @@ const ageGroups = [
     blurb: {
       en: "Whether you're starting from zero, coming back after years off, or picking up a lifelong passion.",
       zh: "无论你是从零开始、久别重拾吉他，还是想培养一项终身兴趣。",
+    },
+    price: {
+      en: "1 hr · RM130 per lesson, or RM470/month",
+      zh: "1 小时 · 每堂 RM130，或月费 RM470",
     },
   },
 ];
@@ -56,7 +69,7 @@ export default function WhoITeach() {
 
   return (
     <section id="lessons" className="border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-12 sm:py-24">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:py-24">
         <Reveal className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {c.heading}
@@ -75,14 +88,16 @@ export default function WhoITeach() {
                   alt={`Teaching photo — ${group.label.en}`}
                   fill
                   sizes="(min-width: 640px) 33vw, 100vw"
-                  className={group.id === "4-8" ? "object-contain" : "object-cover"}
+                  className={group.id === "3-9" ? "object-contain" : "object-cover"}
                 />
               </div>
               <h3 className="mt-4 text-lg font-semibold text-white">{group.label[lang]}</h3>
               <p className="mt-1 text-sm text-white/60">{group.blurb[lang]}</p>
+              <p className="mt-2 text-sm font-semibold text-amber-400">{group.price[lang]}</p>
             </StaggerItem>
           ))}
         </StaggerGroup>
+        <OnlinePriceLink className="mt-6" />
         <Reveal delay={0.1}>
           <a
             href={whatsappLink(trialMessage)}
